@@ -26,6 +26,7 @@ class Ztree:
                         self.tree.remove_node(path)
                     else:
                         print("Las versiones no concuerdan c:")
+                        raise Exception()
             else:
                 if((nodoData.OnService == False) and (nodoData.ephemeral == True)):
                     self.tree.remove_node(path)
@@ -38,11 +39,13 @@ class Ztree:
                                     self.tree.remove_node(path)
                                 else:
                                     print("Las versiones no concuerdan c:")
+                                    raise Exception()
                             else:
                                 print("Tiempo restante de vida = {i}".format(i=i))
         else:
             print("Nodo no existe")
-            
+            raise Exception()
+
     def exist(self,path):
         if(self.tree.contains(path)):
             return True
@@ -60,6 +63,7 @@ class Ztree:
             return(nodoData.data)
         else:
             print("Nodo no existe")
+            raise Exception()
     
     def setData(self,path,contenido):
         if(self.exist(path)):
@@ -69,6 +73,7 @@ class Ztree:
             nodo.version = nodo.version + 1
         else:
             print("Nodo no existe")
+            raise Exception()
     
     def showNode(self,path):
         if(self.exist(path)):
@@ -77,6 +82,7 @@ class Ztree:
             nodo.get_node_info()
         else:
             print("Nodo no existe")
+            raise Exception()
     
     def getChildren(self,path):
         if(self.exist(path)):
@@ -84,6 +90,7 @@ class Ztree:
             print(self.tree.children(path))
         else:
             print("Nodo no existe")
+            raise Exception()
     
 
     
